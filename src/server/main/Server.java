@@ -1,12 +1,26 @@
 package server.main;
 
-public class Server {
+import java.io.IOException;
+import java.net.ServerSocket;
 
+public class Server extends Thread {
+
+	private int port;
+	
 	private Server() {
 		
 	}
 	
 	private Server(int port) {
+		this.port = port;
+	}
+	
+	private void initServer() throws IOException {
+		ServerSocket serverSocket = new ServerSocket(port);
+	}
+	
+	@Override
+	public void run() {
 		
 	}
 	
@@ -15,8 +29,8 @@ public class Server {
 	}
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		Server server = createServer();
+		server.start();
 	}
 
 }
